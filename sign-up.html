@@ -1,0 +1,192 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Kerala </title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <nav class="nav nav_other">
+            <div class="logo">
+                <a href="index.html"><img class="logo" src="images/logo.png"></a>
+            </div>
+            <div class="container">
+
+                <div id="mainListDiv" class="main_list">
+                    <ul class="navlinks">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="districts.html">Districts</a></li>
+                        <li>
+                            <a href="sign-in.html"><button class="btn btn_sign">Sign In</button></a>
+                        </li>
+                        <li>
+                            <a class="signup_link" href="sign-up.html">Create Account</a>
+                        </li>
+                        <!-- <li><a href="#">Services</a></li> -->
+                    </ul>
+                </div>
+                <span class="navTrigger">
+                  <i></i>
+                  <i></i>
+                  <i></i>
+              </span>
+            </div>
+        </nav>
+
+    </header>
+
+    <!-- header -->
+    <div class="body_content">
+        <video autoplay muted loop id="myVideo">
+            <source src="images/signupback.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+        <div class="container">
+            <div class="col-md-6 col-centered login">
+                <h1>Sign Up</h1>
+                <form action="sign-in.html" onsubmit="return signup_validate()">
+                    <div class="col-md-11 col-centered">
+                        <div class="row login_block">
+                            <div class="col-md-4">
+                                <label class="item_label">First Name </label>
+                            </div>
+
+                            <div class="col-md-8">
+                                <input type="text" id="first_name" placeholder="First Name" class="form-control" onblur="validate_fname(this.value)">
+                                <p class="error" id="error_first_name"></p>
+                            </div>
+                        </div>
+                        <div class="row login_block">
+                            <div class="col-md-4">
+                                <label class="item_label">Last Name</label>
+                            </div>
+
+                            <div class="col-md-8">
+                                <input type="text" id="last_name" placeholder="Last Name" class="form-control" onblur="validate_lname(this.value)">
+                                <p class="error" id="error_last_name"></p>
+                            </div>
+                        </div>
+
+                        <div class="row login_block">
+                            <div class="col-md-4">
+                                <label class="item_label">Mobile</label>
+                            </div>
+
+                            <div class="col-md-8">
+                                <input type="text" id="mobile" placeholder="Mobile" onblur="validate_mobile(this.value)" class="form-control">
+                                <p class="error" id="error_mobile"></p>
+                            </div>
+                        </div>
+                        <div class="row login_block">
+                            <div class="col-md-4">
+                                <label class="item_label">Email</label>
+                            </div>
+
+                            <div class="col-md-8">
+                                <input type="text" id="email" placeholder="Email" onblur="validate_email(this.value)" class="form-control">
+                                <p class="error" id="error_email_signup"></p>
+                            </div>
+                        </div>
+                        <div class="row login_block">
+                            <div class="col-md-4">
+                                <label class="item_label">Password</label>
+                            </div>
+
+                            <div class="col-md-8">
+                                <input type="password" id="password" placeholder="Password" onblur="validate_password(this.value)" onfocus="show_instructions()" onkeydown="hide_instructions()" class="form-control pass" onKeyup="passwordStrenght(this.value)">
+                                <p class="error" id="error_password_signup"></p>
+                                <div class="bubble" id="bub">
+                                    <p>
+
+                                        <b>*</b> At least one lowercase character<br> <b>*</b> At least one uppercase character<br> <b>*</b> At least one number<br> <b>*</b> At least 8 characters and maximum of 32 characters<br>
+
+
+                                    </p>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-danger" id="strength" style="width:0%"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row login_block">
+                            <div class="col-md-4">
+                                <label class="item_label">Confirm Password</label>
+                            </div>
+
+                            <div class="col-md-8">
+                                <input type="password" id="confirm_password" placeholder="Confirm Password" onblur="validate_confirmpassword(this.value)" class="form-control">
+                                <p class="error" id="error_confirmpassword"></p>
+                            </div>
+                        </div>
+                        <div class="row login_block">
+                            <div class="col-md-4">
+
+                            </div>
+
+                            <div class="col-md-8">
+                                <button type="submit" class="btn_login">SIGN UP</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <!-- <footer>
+        <div class="social">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        
+                        <h4>Contact</h4>
+                        <p>Kerala Tourism</p>
+                        <p>Trivandrum</p>
+                        <p>Kerala</p>
+                        <p>Phone: 0471 120210</p>
+                        <p>Email: kerala.tourism@mail.com</p>
+                    </div>
+                    <div class="col-md-4 footer_logo">
+                      
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div>
+            <p class="footer_text">Copyright © 2020</p>
+        </div>
+    </footer> -->
+    <script>
+        $(window).scroll(function() {
+            if ($(document).scrollTop() > 50) {
+                $('.nav').addClass('affix');
+                console.log("OK");
+            } else {
+                $('.nav').removeClass('affix');
+            }
+        });
+
+        $('.navTrigger').click(function() {
+            $(this).toggleClass('active');
+            console.log("Clicked menu");
+            $("#mainListDiv").toggleClass("show_list");
+            $("#mainListDiv").fadeIn();
+
+        });
+    </script>
+    <script src="js/form.js"></script>
+</body>
+
+</html>
